@@ -1,4 +1,4 @@
-package br.com.helpdesk.helpdesk.domain;
+package br.com.helpdesk.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -12,15 +12,10 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.helpdesk.helpdesk.domain.enums.Prioridade;
-import br.com.helpdesk.helpdesk.domain.enums.Status;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.com.helpdesk.domain.enums.Prioridade;
+import br.com.helpdesk.domain.enums.Status;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 public class Chamado implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -46,4 +41,16 @@ public class Chamado implements Serializable {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    public Chamado(LocalDate dataAbertura, LocalDate dataFechamento, Prioridade prioridade, 
+                   Status status, String titulo, String observacoes, Tecnico tecnico, Cliente cliente) {
+        this.dataAbertura = dataAbertura;
+        this.dataFechamento = dataFechamento;
+        this.prioridade = prioridade;
+        this.status = status;
+        this.titulo = titulo;
+        this.observacoes = observacoes;
+        this.tecnico = tecnico;
+        this.cliente = cliente;
+    }
 }

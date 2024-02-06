@@ -1,8 +1,8 @@
-package br.com.helpdesk.helpdesk.domain.enums;
+package br.com.helpdesk.domain.enums;
 
 public enum Prioridade {
 
-	ABERTO(0, "ABERTO"),ADAMENTO(1, "ADAMENTO"),ENCERRADO(2, "ENCERRADO");
+	BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ALTA(2, "ALTA");
 	
 	private Integer codigo;
 	private String descricao;

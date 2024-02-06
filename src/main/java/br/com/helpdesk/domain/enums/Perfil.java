@@ -1,4 +1,4 @@
-package br.com.helpdesk.helpdesk.domain.enums;
+package br.com.helpdesk.domain.enums;
 
 public enum Perfil {
 
