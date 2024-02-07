@@ -1,6 +1,5 @@
 package br.com.helpdesk.domain;
 
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -19,130 +18,54 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.helpdesk.domain.enums.Perfil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data // Esta anotação do Lombok gera automaticamente os getters, setters, equals, hashCode, e toString
+@AllArgsConstructor // Construtor com todos os argumentos
 public abstract class Pessoa implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Integer id;
-	protected String nome;
-	
-	@Column(unique = true)
-	protected String cpf;
-	
-	@Column(unique = true)
-	protected String email;
-	protected String senha;
-	
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "PERFIS")
-	protected Set<Integer> perfis = new HashSet<>();
-	
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	protected LocalDate dataCriacao = LocalDate.now();
+    private static final long serialVersionUID = 1L;
 
-	public Pessoa() {
-		super();
-		addPerfil(Perfil.CLIENTE);
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
+    protected String nome;
 
-	public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.email = email;
-		this.senha = senha;
-		addPerfil(Perfil.CLIENTE);
-	}
+    @Column(unique = true)
+    protected String cpf;
 
-	public Integer getId() {
-		return id;
-	}
+    @Column(unique = true)
+    protected String email;
+    protected String senha;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "PERFIS")
+    protected Set<Integer> perfis = new HashSet<>();
 
-	public String getNome() {
-		return nome;
-	}
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    protected LocalDate dataCriacao = LocalDate.now();
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Pessoa() {
+        super();
+        addPerfil(Perfil.CLIENTE);
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
+        addPerfil(Perfil.CLIENTE);
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+    }
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public Set<Perfil> getPerfis() {
-		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
-	}
-
-	public void addPerfil(Perfil perfil) {
-		this.perfis.add(perfil.getCodigo());
-	}
-
-	public LocalDate getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(LocalDate dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		if (cpf == null) {
-			if (other.cpf != null)
-				return false;
-		} else if (!cpf.equals(other.cpf))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
+    public void addPerfil(Perfil perfil) {
+        this.perfis.add(perfil.getCodigo());
+    }
 }

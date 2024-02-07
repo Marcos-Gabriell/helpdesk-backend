@@ -8,31 +8,32 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Cliente extends Pessoa {
-
     private static final long serialVersionUID = 1L;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Chamado> chamados = new ArrayList<>();
 
-	public Cliente() {
-		super();
-	}
+    public Cliente() {
+        super();
+    }
 
-	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
-		super(id, nome, cpf, email, senha);
-	}
+    public Cliente(Integer id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
+    }
 
-	public List<Chamado> getChamados() {
-		return chamados;
-	}
+    public List<Chamado> getChamados() {
+        return chamados;
+    }
 
-	public void setChamados(List<Chamado> chamados) {
-		this.chamados = chamados;
-	}
-
-    
+    public void setChamados(List<Chamado> chamados) {
+        this.chamados = chamados;
+    }
 }

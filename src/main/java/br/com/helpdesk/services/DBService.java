@@ -26,15 +26,16 @@ public class DBService {
 	private ChamadoRepository chamadoRepository;
 
 	public void instanciaDB() {
-		Tecnico tec1 = new Tecnico(null, "Valdir cezar", "51715847024", "valdir@mail.com", "123");
-		tec1.addPerfil(Perfil.ADMIN);
-		
-		Cliente cli1 = new Cliente(null, "Marcos Gabriel", "95252949000", "marcos@mail.com", "123");
-		
-		Chamado c1 = new Chamado(null, null, Prioridade.MEDIA, Status.ANDAMENTO, "chamado 01", null, tec1, cli1);
-		
-		tecnicoRepository.saveAll(Arrays.asList(tec1));
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		chamadoRepository.saveAll(Arrays.asList(c1));
+	    Tecnico tec1 = new Tecnico(null, "Valdir cezar", "51715847024", "valdir@mail.com", "123");
+	    tec1.addPerfil(Perfil.ADMIN);
+	    
+	    Cliente cli1 = new Cliente(null, "Marcos Gabriel", "95252949000", "marcos@mail.com", "123");
+	    
+	    Chamado c1 = new Chamado(null, null, null, Prioridade.MEDIA, Status.ANDAMENTO, "chamado 01", null, tec1, cli1);
+	    
+	    tecnicoRepository.save(tec1);
+	    clienteRepository.save(cli1);
+	    chamadoRepository.save(c1);
 	}
+
 }
