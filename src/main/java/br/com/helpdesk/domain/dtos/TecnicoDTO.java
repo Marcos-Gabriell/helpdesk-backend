@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotNull;
+
 import br.com.helpdesk.domain.Tecnico;
 import br.com.helpdesk.domain.enums.Perfil;
 import lombok.AllArgsConstructor;
@@ -19,9 +21,17 @@ public class TecnicoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
+    
+    @NotNull(message = "o campo NOME é requerido")
     protected String nome;
+    
+    @NotNull(message = "o campo CPF é requerido")
     protected String cpf;
+    
+    @NotNull(message = "o campo EMAIL é requerido")
     protected String email;
+    
+    @NotNull(message = "o campo SENHA é requerido")
     protected String senha;
     protected Set<Integer> perfis = new HashSet<>();
     protected LocalDate dataCriacao = LocalDate.now();
