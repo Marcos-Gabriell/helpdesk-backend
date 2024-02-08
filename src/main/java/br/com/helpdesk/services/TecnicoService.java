@@ -3,6 +3,8 @@ package br.com.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,14 @@ public class TecnicoService {
 		validaPorCpfEEmail(objDTO);
 		Tecnico newobj = new Tecnico(objDTO);
 		return repository.save(newobj);
+	}
+	
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		Tecnico oldObj = findByid(id);
+		validaPorCpfEEmail(objDTO);
+		oldObj = new Tecnico(objDTO);
+		return repository.save(oldObj);
 	}
 
 	private void validaPorCpfEEmail(TecnicoDTO objDTO) {
