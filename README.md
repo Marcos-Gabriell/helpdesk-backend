@@ -30,9 +30,8 @@ No âmbito técnico, o HelpDesk utiliza as seguintes tecnologias e conceitos:
 2. Certifique-se de ter o ambiente de desenvolvimento configurado conforme as instruções do projeto.
 3. Execute a aplicação back-end usando o Spring Boot.
 4. Execute o front-end da aplicação utilizando o Angular.
-5. Acesse a aplicação através do navegador.
+5. Acesse a aplicação através do navegador ou do Postman.
 
-Com o HelpDesk, você terá uma aplicação robusta e eficiente para gerenciar ordens de serviço de sua microempresa.
 
 ---
-Este projeto foi desenvolvido como parte do aprendizado em desenvolvimento web e Java com Spring Boot. Se encontrar algum problema
+Este projeto foi desenvolvido como parte do aprendizado em desenvolvimento web e Java com Spring Boot. 
