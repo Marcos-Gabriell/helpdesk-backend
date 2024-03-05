@@ -4,7 +4,6 @@
 
 
 
-
 ## Visão Funcional
 
 Neste projeto, você aprenderá a construir uma aplicação web completa, oferecendo operações básicas de CRUD (Create, Read, Update e Delete) para gerenciar ordens de serviço.
