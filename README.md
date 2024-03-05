@@ -3,7 +3,6 @@
 #### O projeto HelpDesk é uma aplicação de gerenciamento de ordens de serviço para uma microempresa de assistência técnica para computadores. Com ele, é possível administrar chamados, informações e atividades relacionadas aos clientes, técnicos e administradores.
 
 
-
 ## Visão Funcional
 
 Neste projeto, você aprenderá a construir uma aplicação web completa, oferecendo operações básicas de CRUD (Create, Read, Update e Delete) para gerenciar ordens de serviço.
