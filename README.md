@@ -35,3 +35,9 @@ No âmbito técnico, o HelpDesk utiliza as seguintes tecnologias e conceitos:
 
 ---
 Este projeto foi desenvolvido como parte do aprendizado em desenvolvimento web e Java com Spring Boot. 
+
+## Front-End
+
+O repositório com o código do Front-End do projeto HelpDesk está disponível em:
+[Repositório HelpDesk Front-End](https://github.com/Marcos-Gabriell/helpdesk-frontend)
+
