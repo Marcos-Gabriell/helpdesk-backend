@@ -1,0 +1,13 @@
+# build
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# logs
+*.log
+
+# Spring Initializr
+HELP.md
